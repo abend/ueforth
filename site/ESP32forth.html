@@ -352,10 +352,12 @@ REALLOC ( a n -- a | 0 )   System realloc
 These words are inside the <code>Serial</code> vocabulary.
 <pre>
 Serial.begin ( baud -- )   Start serial port
+Serial.begin3 ( baud rxPin txPin -- )   Start serial port
 Serial.end ( -- )   End serial port
 Serial.available ( -- f )   Is serial data available
 Serial.readBytes ( a n -- n )   Read serial bytes, return number gotten
 Serial.write ( a n -- n )   Write serial bytes
+Serial.writeChar ( c -- n )   Write serial character
 Serial.flush ( -- )   Flush serial buffer
 </pre>
 
@@ -500,6 +502,7 @@ SPIFFS.end ( -- )
 SPIFFS.format ( -- f )
 SPIFFS.totalBytes ( -- n )
 SPIFFS.usedBytes ( -- n )
+SPIFFS.exists ( z -- f )   Test if file exists for path (omitting "/spiffs") like z" /blocks.fb"
 </pre>
 
 <h5>WebServer (DEPRECATED)</h5>
@@ -1231,4 +1234,3 @@ New variables can be declared in each word and are scoped to that word.
   Y(MY_WORD, cell_t foo = n0; DROP; char *x = c0; DROP; \
              PUSH my_func(foo, x)) \
 </pre>
-

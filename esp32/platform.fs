@@ -40,12 +40,28 @@ also ledc also serial also SPIFFS
 ( Map Arduino / ESP32 things to shorter names. )
 : pin ( n pin# -- ) swap digitalWrite ;
 : adc ( n -- n ) analogRead ;
+: duty ( n n -- ) 255 min 8191 255 */ ledcWrite ;
+: freq ( n n -- ) 1000 * 13 ledcAttach drop ;
+: tone ( n n -- ) 1000 * ledcWriteTone drop ;
 
 ( Basic Ardiuno Constants )
 0 constant LOW
 1 constant HIGH
+
 1 constant INPUT
-2 constant OUTPUT
+\ 2 constant OUTPUT
+\ // Changed OUTPUT from 0x02 to behave the same as Arduino pinMode(pin,OUTPUT)
+\ // where you can read the state of pin even when it is set as OUTPUT
+3 constant OUTPUT
+4 constant PULLUP
+5 constant INPUT_PULLUP
+8 constant PULLDOWN
+9 constant INPUT_PULLDOWN
+16 constant OPEN_DRAIN
+18 constant OUTPUT_OPEN_DRAIN
+192 constant ANALOG
+
+
 2 constant LED
 
 ( Startup Setup )
