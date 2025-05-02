@@ -298,7 +298,8 @@ static cell_t ResizeFile(cell_t fd, cell_t size);
   XV(SPIFFS, "SPIFFS.end", SPIFFS_END, SPIFFS.end()) \
   XV(SPIFFS, "SPIFFS.format", SPIFFS_FORMAT, PUSH SPIFFS.format()) \
   XV(SPIFFS, "SPIFFS.totalBytes", SPIFFS_TOTAL_BYTES, PUSH SPIFFS.totalBytes()) \
-  XV(SPIFFS, "SPIFFS.usedBytes", SPIFFS_USED_BYTES, PUSH SPIFFS.usedBytes())
+  XV(SPIFFS, "SPIFFS.usedBytes", SPIFFS_USED_BYTES, PUSH SPIFFS.usedBytes()) \
+  XV(SPIFFS, "SPIFFS.exists", SPIFFS_EXISTS, n0 = SPIFFS.exists(c0) ? -1 : 0)
 #endif
 
 #ifndef ENABLE_FREERTOS_SUPPORT
