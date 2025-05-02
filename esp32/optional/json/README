@@ -1,0 +1,12 @@
+some test code:
+
+variable doc json-create doc !
+z" {a:'qwe',b:123}" doc @ json-deserialize
+z" b" doc @ json-get-number .
+z" a" doc @ json-get-string z>s type
+
+z" thingy" z" a" doc @ json-set-string
+z" a" doc @ json-get-string z>s type
+
+321 z" a" doc @ json-set-number
+z" a" doc @ json-get-number .

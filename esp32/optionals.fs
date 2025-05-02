@@ -53,3 +53,9 @@ internals DEFINED? HTTPClient-builtins [IF]
   transfer HTTPClient-builtins
   forth definitions
 [THEN] forth
+
+internals DEFINED? json-builtins [IF]
+  vocabulary json   json definitions
+  transfer json-builtins
+  forth definitions
+[THEN] forth
