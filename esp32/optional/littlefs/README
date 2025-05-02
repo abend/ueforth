@@ -1,0 +1,11 @@
+WIP
+
+littlefs and spiffs can't coexist
+unless maybe they're flashed to different spots
+
+the startup code looks for a spiffs partition. i think
+we'd need to have a compile time option to choose between
+boot from spiffs or boot from littlefs
+
+there are missing file functions we'll need to provide
+to fully replace spiffs
